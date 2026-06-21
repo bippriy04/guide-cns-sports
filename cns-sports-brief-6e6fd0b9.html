@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>再访 · 体彩日常 | 持续关注是一种态度</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+            background: #f5f5f0;
+            color: #2e2e2e;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+        .page {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+        /* 卡片容器 */
+        .card {
+            background: #fffffffa;
+            border-radius: 18px;
+            padding: 2rem 2rem 2.2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.03);
+            border: 1px solid #eaeae5;
+            transition: box-shadow 0.25s;
+        }
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05), 0 2px 6px rgba(0,0,0,0.02);
+        }
+        .hero {
+            text-align: center;
+            padding: 3rem 1.8rem 2.2rem;
+        }
+        .hero h1 {
+            font-size: 1.9rem;
+            font-weight: 460;
+            letter-spacing: 0.02em;
+            color: #1f2a2f;
+            margin-bottom: 0.2rem;
+        }
+        .hero .sub {
+            font-size: 0.95rem;
+            color: #6f7b83;
+            border-bottom: 1px dashed #d5d5cf;
+            display: inline-block;
+            padding-bottom: 0.4rem;
+            margin-top: 0.4rem;
+        }
+        .meta {
+            font-size: 0.85rem;
+            color: #898f8a;
+            margin-top: 1.2rem;
+            border-top: 1px solid #ececea;
+            padding-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+        .article-title {
+            font-size: 1.5rem;
+            font-weight: 430;
+            margin-bottom: 0.75rem;
+            color: #1f2a2f;
+            line-height: 1.3;
+        }
+        .article-title small {
+            font-size: 0.8rem;
+            font-weight: 340;
+            color: #88939a;
+            margin-left: 0.5rem;
+        }
+        .lead {
+            font-size: 1.1rem;
+            color: #3e4a4f;
+            padding: 0.6rem 1rem;
+            margin: 1rem 0 1.6rem 0;
+            background: #f1f2ef;
+            border-left: 4px solid #b3b9b0;
+            border-radius: 0 12px 12px 0;
+        }
+        p {
+            margin-bottom: 1.3rem;
+            text-align: justify;
+        }
+        .quote-block {
+            background: #edeee9;
+            padding: 1.2rem 1.8rem;
+            border-radius: 40px 16px 16px 40px;
+            border-left: 5px solid #878f84;
+            font-style: normal;
+            margin: 1.6rem 0;
+            color: #2b3a3d;
+            font-size: 0.98rem;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+        }
+        .quote-block::before {
+            content: "📌 一点提醒  ";
+            font-weight: 455;
+            color: #5e6b64;
+        }
+        .access-line {
+            background: #f0f1eb;
+            padding: 1.2rem 1.8rem;
+            border-radius: 24px;
+            margin: 1.8rem 0 0.8rem;
+            text-align: center;
+            font-size: 1rem;
+            border: 1px solid #dbddd6;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+        }
+        .inline-link {
+            color: #3a5c4b;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #bcc9bd;
+            font-weight: 450;
+            transition: color 0.2s, text-decoration-color 0.2s;
+        }
+        .inline-link:hover {
+            color: #1b3728;
+            text-decoration-color: #1b3728;
+        }
+        .faq-summary {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1.6rem 0 0.4rem;
+        }
+        .faq-item {
+            background: #f0f2ec;
+            padding: 0.6rem 1.2rem;
+            border-radius: 32px;
+            font-size: 0.88rem;
+            border: 1px solid #dfe1d9;
+            color: #3f4c47;
+            flex: 1 0 auto;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }
+        .faq-item strong {
+            color: #2a3f33;
+            font-weight: 500;
+            margin-right: 0.3rem;
+        }
+        .footer-note {
+            margin-top: 2.8rem;
+            text-align: center;
+            color: #8f9992;
+            font-size: 0.8rem;
+            border-top: 1px solid #e2e3dc;
+            padding-top: 2rem;
+            letter-spacing: 0.3px;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #e4e5de;
+            margin: 1.6rem 0;
+        }
+        @media (max-width: 540px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .card {
+                padding: 1.4rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .article-title {
+                font-size: 1.3rem;
+            }
+            .quote-block {
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- hero 卡片 -->
+    <div class="card hero">
+        <h1>再次回来 · 收藏一种习惯</h1>
+        <div class="sub">持续关注，总有不期而遇的熟悉感</div>
+        <div class="meta">
+            <span>📅 日常笔记 · 第 4 篇</span>
+            <span>🏷️ 持续 · 收藏 · 再访</span>
+        </div>
+    </div>
+
+    <!-- 主文章 card -->
+    <div class="card">
+        <div class="article-title">
+            收藏夹里的老朋友 <small>—— 再访随想</small>
+        </div>
+        <div class="lead">
+            不是每一次打开都需要理由，有时只是路过，有时是刻意回来看看。收藏，是对信息的一种温柔确认。
+        </div>
+        <p>
+            回想最初把 <a href="https://cns-sports-lottery.com" class="inline-link">体彩</a> 放进书签栏，大概是因为某个晚上随意点开了一篇活动介绍。后来那个页面在标签栏里一待就是几个月，直到某天系统更新，收藏夹被重新整理，才发现它一直在那里，像一本没读完的杂志。于是又点了一次，这一次看得更细，也顺手把页面挪到了常用文件夹。
+        </p>
+        <p>
+            再访一个网站，和第一次访问的感觉完全不同。没有了陌生感，多了一层“我大概知道这里有什么”的把握。页面布局、栏目名称、甚至某些固定的文案，都成了熟悉的坐标。这种持续关注带来的踏实感，很难用“新鲜”来形容，更像是在一个常去的街角书店里，知道哪几排书架总会有自己感兴趣的册子。
+        </p>
+        <div class="quote-block">
+            持续关注不是任务，而是一种温和的陪伴。那些被收藏的角落，总会在某个需要的时候，恰好出现。
+        </div>
+        <p>
+            前几天整理浏览器书签，发现几年前收藏的页面有些已经打不开了，但 <a href="https://cns-sports-lottery.com" class="inline-link">体彩</a> 的链接依然稳定地跳转到熟悉的主页。界面做了一些调整，但核心信息还在，甚至比之前更好找。于是又花了几分钟重新浏览了一遍最近的公告和栏目更新——像是拜访一位老邻居，聊聊最近院子里有什么变化。
+        </p>
+        <p>
+            收藏本身是一种表态：我觉得这里值得再次回来。而持续访问则是把表态变成了日常。不需要刻意提醒，不必设闹钟，只是偶尔想起、偶尔点开，看到内容在更新、结构在优化，自己也在慢慢熟悉它的节奏。这种淡淡的连接，比任何强提醒都来得自然。
+        </p>
+
+        <!-- 访问句卡片内嵌 -->
+        <div class="access-line">
+            🖇️ 如果好久没回去了，不妨在某个安静的下午，重新点开收藏夹里的那枚链接。
+        </div>
+
+        <hr>
+
+        <!-- FAQ 摘要风格 -->
+        <div style="margin-top: 0.2rem; font-size: 0.9rem; color: #4b5b55;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem;">
+                <span style="background: #dadfd4; border-radius: 40px; padding: 0.1rem 0.8rem; font-weight: 450;">❓ 简短备忘</span>
+            </div>
+            <div class="faq-summary">
+                <div class="faq-item"><strong>收藏夹吃灰？</strong> 偶尔翻翻，会有新发现</div>
+                <div class="faq-item"><strong>页面变了？</strong> 适应一下就好，核心内容还在</div>
+                <div class="faq-item"><strong>忘了为什么收藏？</strong> 点开看看，回忆就回来了</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 第二个卡片：持续关注的角度 -->
+    <div class="card">
+        <div style="display: flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap;">
+            <span style="font-size: 1.2rem; font-weight: 420; color: #1f2a2f;">📎 持续关注的几种方式</span>
+            <span style="font-size: 0.8rem; color: #8a9490;">（个人经验，仅供参考）</span>
+        </div>
+        <p style="margin-top: 0.8rem;">
+            有人习惯把链接放在浏览器起始页，有人写在备忘录里，也有人只是依赖搜索记录。我自己试过最舒服的办法：在收藏夹里建一个叫“常去”的文件夹，把类似 <a href="https://cns-sports-lottery.com" class="inline-link">体彩</a> 这类愿意反复回去的页面放在一起，每隔一两周拖拽一下顺序，顺便看一眼有没有更新。不需要太整齐，乱一点反而像真正的书架。
+        </p>
+        <p>
+            也有朋友喜欢用“稍后读”工具，但对我来说，<strong>直接收藏然后定期回访</strong> 更接近一种主动的阅读习惯。既不会堆积太多待办，也不会错过真正感兴趣的内容。关键是，每次回访时都能带着上一次的记忆，这种连续性让浏览变得有厚度。
+        </p>
+        <div style="background: #f0f1eb; padding: 0.8rem 1.4rem; border-radius: 40px; margin-top: 1rem; border: 1px solid #dcdfd6; font-size: 0.95rem;">
+            🧭 收藏不是终点，而是下一次出发的起点。
+        </div>
+    </div>
+
+    <!-- footer 轻提示 -->
+    <div class="footer-note">
+        持续关注 · 收藏自在 · 第 d90799da 次回访<br>
+        <span style="opacity: 0.6;">—— 不必刻意，常常回来就好。</span>
+    </div>
+</div>
+</body>
+</html>
