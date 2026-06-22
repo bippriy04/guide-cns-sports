@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>半岛体育 · 简明指南与访问说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f2f4f6;
+            color: #1e1e2a;
+            line-height: 1.6;
+            padding: 24px 16px;
+        }
+        .page {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+        /* hero 卡片 */
+        .hero {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.02);
+            padding: 48px 28px 40px;
+            border: 1px solid rgba(0,0,0,0.03);
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 16px;
+            background: linear-gradient(145deg, #1f2937, #374151);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            max-width: 620px;
+            margin: 0 auto 24px;
+            font-size: 1.05rem;
+            color: #3e4a5a;
+        }
+        .hero .badge {
+            display: inline-block;
+            background: #eef1f5;
+            border-radius: 40px;
+            padding: 6px 18px;
+            font-size: 0.85rem;
+            color: #2e3b4e;
+            border: 1px solid #dce2e8;
+            margin-bottom: 12px;
+        }
+        .hero .guide-link {
+            margin-top: 12px;
+            font-size: 0.95rem;
+        }
+        .hero .guide-link a {
+            color: #1f4e8c;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .hero .guide-link a:hover {
+            border-bottom-color: #1f4e8c;
+        }
+        /* 通用卡片 */
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 0 0 1px rgba(0,0,0,0.02);
+            padding: 28px 24px;
+            border: 1px solid #e9edf0;
+        }
+        .card h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 18px;
+            color: #1d2b3a;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card h2::before {
+            content: "▹";
+            font-size: 1.2rem;
+            color: #3a6793;
+            opacity: 0.7;
+        }
+        .card ul, .card ol {
+            padding-left: 22px;
+            margin: 8px 0 12px;
+        }
+        .card li {
+            margin-bottom: 7px;
+            color: #2a3a4a;
+        }
+        .card p {
+            margin-bottom: 14px;
+            color: #33404f;
+        }
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 12px 0 4px;
+        }
+        .feature-item {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 14px 16px;
+            border: 1px solid #eef1f5;
+            transition: box-shadow 0.2s;
+        }
+        .feature-item strong {
+            display: block;
+            margin-bottom: 4px;
+            color: #1f2a3a;
+        }
+        .feature-item span {
+            font-size: 0.9rem;
+            color: #4a5a6e;
+        }
+        /* faq 摘要 */
+        .faq-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #edf0f3;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-question {
+            font-weight: 600;
+            color: #1d2b3a;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+        }
+        .faq-question::before {
+            content: "Q";
+            font-weight: 700;
+            background: #dce3ec;
+            color: #1f3a5a;
+            border-radius: 20px;
+            width: 22px;
+            height: 22px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            flex-shrink: 0;
+        }
+        .faq-answer {
+            padding-left: 28px;
+            font-size: 0.94rem;
+            color: #405168;
+        }
+        .faq-answer a {
+            color: #1f4e8c;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        /* 底部 */
+        .footer-note {
+            background: transparent;
+            border-top: 1px solid #dae0e6;
+            padding: 20px 0 10px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #5a6b7c;
+        }
+        .footer-note a {
+            color: #1f4e8c;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .footer-note a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 640px) {
+            body { padding: 16px 10px; }
+            .hero { padding: 32px 18px; }
+            .hero h1 { font-size: 1.7rem; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .card { padding: 22px 16px; }
+        }
+        @media (min-width: 641px) and (max-width: 800px) {
+            .grid-2 { grid-template-columns: 1fr 1fr; }
+        }
+        /* 小装饰 */
+        .card.quiet {
+            background: #fafcfe;
+        }
+        .inline-link {
+            color: #1f4e8c;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #e2e7ec;
+            margin: 8px 0 16px;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 区：简明指南基调 -->
+    <div class="hero">
+        <div class="badge">📋 访问指引 · 简明说明</div>
+        <h1>半岛体育 · 使用前的提醒与指南</h1>
+        <p>无论你是第一次接触还是希望了解更稳妥的浏览方式，这份整理的内容都能帮你快速熟悉。以下信息基于常规使用场景归纳，不构成任何承诺。</p>
+        <div class="guide-link">
+            — 直接访问 <a href="https://webs-bdsport.com">半岛体育</a> 即可开始。
+        </div>
+    </div>
+
+    <!-- 优势区：简化版 4 项 -->
+    <div class="card">
+        <h2>几个值得留意的特点</h2>
+        <div class="grid-2">
+            <div class="feature-item">
+                <strong>界面布局清晰</strong>
+                <span>频道分类、赛程列表、数据面板都放在直观的位置，减少寻找时间。</span>
+            </div>
+            <div class="feature-item">
+                <strong>多终端适配</strong>
+                <span>移动端和桌面端的排版都经过调整，缩放阅读体验相对统一。</span>
+            </div>
+            <div class="feature-item">
+                <strong>资讯更新稳定</strong>
+                <span>比分、赛事进程以及相关文章保持较高的刷新频率，信息延迟较低。</span>
+            </div>
+            <div class="feature-item">
+                <strong>基础功能完整</strong>
+                <span>搜索、筛选、收藏等常用模块均有提供，操作逻辑接近常见平台。</span>
+            </div>
+        </div>
+        <p style="margin-top: 14px; font-size: 0.94rem; color: #465a6e;">以上特点基于公开页面观察，实际表现可能因网络环境、设备差异而略有不同。</p>
+    </div>
+
+    <!-- 说明区：从使用场景和提醒切入 -->
+    <div class="card">
+        <h2>日常使用场景与提示</h2>
+        <p>很多用户习惯在晚间或周末集中浏览体育内容，这时候服务器负载较高，可以尝试以下方式改善体验：</p>
+        <ul>
+            <li><strong>错峰加载</strong> — 如果页面响应偏慢，可稍等几分钟再刷新，避开瞬时拥堵。</li>
+            <li><strong>检查网络连接</strong> — 部分加载异常与本地网络波动有关，切换热点或重启路由器有时能解决。</li>
+            <li><strong>清理浏览器缓存</strong> — 长期未清理的缓存可能导致样式错乱或登录状态异常，建议每月清理一次。</li>
+        </ul>
+        <p>另外，<a href="https://webs-bdsport.com" class="inline-link">半岛体育</a> 作为体育信息平台，不要求用户提供敏感个人信息即可浏览大部分内容。如果在使用过程中遇到弹窗或引导，留意是否为浏览器自带提示。</p>
+        <hr>
+        <p style="font-size: 0.93rem; color: #3f536a;"><span style="background: #eef3f8; padding: 2px 10px; border-radius: 12px;">📌</span> 建议将页面添加到书签，避免频繁通过外部搜索进入，减少中间跳转。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="card">
+        <h2>常见疑问摘要</h2>
+        <div class="faq-item">
+            <div class="faq-question">需要注册账号才能浏览吗？</div>
+            <div class="faq-answer">大部分赛事比分、新闻资讯可以直接查看，部分个性化功能（如关注队伍、评论）可能需要注册。注册流程在页面右上角有入口。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">页面显示不全或布局错乱怎么办？</div>
+            <div class="faq-answer">优先更新浏览器到最新版本，并确认网络稳定。如果问题持续，可以尝试通过 <a href="https://webs-bdsport.com">半岛体育</a> 的移动端版访问。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">是否支持深色模式？</div>
+            <div class="faq-answer">目前界面跟随系统设置的部分版本支持深色模式，如果没有自动切换，可以在页面底部的主题开关（如果有）手动调整。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">链接打不开或跳转异常？</div>
+            <div class="faq-answer">请确认输入的网址为 <strong>webs-bdsport.com</strong>，并检查是否有拼写错误。部分安全软件可能拦截，可暂时关闭或添加信任。</div>
+        </div>
+        <p style="margin-top: 10px; font-size: 0.93rem; color: #4b5e73;">以上回答基于常见情况整理，不能覆盖所有个别环境。如遇特殊问题，建议向平台客服或网络管理员咨询。</p>
+    </div>
+
+    <!-- 底部链接区域 -->
+    <div class="footer-note">
+        <p>本页为介绍性指南，所有信息仅供参考。访问 <a href="https://webs-bdsport.com">半岛体育</a> 即代表你已知晓并接受其条款。</p>
+        <p style="margin-top: 6px; font-size: 0.8rem; color: #6e8196;">内容整理于公开资料 · 无任何诱导或保证</p>
+    </div>
+
+</div>
+</body>
+</html>
